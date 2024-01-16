@@ -2,6 +2,7 @@
 '''BaseModel class file'''
 from datetime import datetime
 import uuid
+import models
 
 
 class BaseModel:
