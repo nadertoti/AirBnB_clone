@@ -30,18 +30,10 @@ class FileStorage:
     def reload(self):
         """Deserialize the JSON file to __objects (only if the JSON file (__file_path) exists)."""
         try:
-            with open(self.__file_path, mode='r', encoding='utf-8') as f:
+            with open(self.__file_path) as f:
                 new_dict = json.load(f)
-            for key, value in new_dict.items():
-                class_name, obj_id = key.split('.')
-                obj_dict = {}
-                for k, v in value.items():
-                    if k == 'created_at' or k == 'updated_at':
-                        obj_dict[k] = datetime.strptime(
-                            v, '%Y-%m-%dT%H:%M:%S.%f')
-                    else:
-                        obj_dict[k] = v
-                obj = eval(class_name)(**obj_dict)
-                self.__objects[key] = obj
+
+            for keys in new_dict.keys():
+                self.__objects[keys] = BaseModel(**dic[keys])
         except FileNotFoundError:
             pass
