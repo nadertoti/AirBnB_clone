@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-'''Base Model User Module'''
+'''state module'''
 from models.base_model import BaseModel
+import models
 
 
-class User(BaseModel):
-    '''User Class'''
-    email = ''
-    password = ''
-    first_name = ''
-    last_name = ''
+class State(BaseModel):
+    '''state class'''
+    name = ''

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''construct module'''
+'''constant module'''
 from models.engine.file_storage import FileStorage
 
 
