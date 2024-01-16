@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''BaseModel class file'''
+"""BaseModel class file"""
 from datetime import datetime
 import uuid
 import models
@@ -34,8 +34,8 @@ class BaseModel:
     def to_dict(self):
         """Return dictionary containing all keys/values of __dict__ of the instance."""
         new_dict = self.__dict__.copy()
-        new_dict['id'] = self.id
-        new_dict['created_at'] = self.created_at.isoformat()
         new_dict['__class__'] = type(self).__name__
         new_dict['updated_at'] = self.updated_at.isoformat()
+        new_dict['id'] = self.id
+        new_dict['created_at'] = self.created_at.isoformat()
         return new_dict
